@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,10 +16,11 @@ import java.util.Map;
 public class GitLabWebhookController {
 
     @RequestMapping("/testCall")
-    public ResponseEntity<Map<String, String[]>> testCall(HttpServletRequest request) {
+    public ResponseEntity<Map<String, String[]>> testCall(HttpServletRequest request, @RequestBody String body) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            log.info(objectMapper.writeValueAsString(request.getParameterMap()));
+            log.info("PARAM:" + objectMapper.writeValueAsString(request.getParameterMap()));
+            log.info("BODY:" + body);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
         }
