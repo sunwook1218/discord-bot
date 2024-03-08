@@ -22,14 +22,8 @@ public class JDAConfig {
 
         JDA jda = null;
 
-        try {
             jda = JDABuilder.createDefault(key)
-                    .enableIntents(EnumSet.allOf(GatewayIntent.class))
-                    .build()
-                    .awaitReady();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+                    .build();
 
         jda.addEventListener(mainAdapter);
 
