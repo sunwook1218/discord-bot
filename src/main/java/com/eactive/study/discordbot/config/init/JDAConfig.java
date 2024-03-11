@@ -23,6 +23,8 @@ public class JDAConfig {
         JDA jda = null;
 
             jda = JDABuilder.createDefault(key)
+                    .enableIntents(GatewayIntent.DIRECT_MESSAGES)
+                    .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                     .build();
 
         jda.addEventListener(mainAdapter);

@@ -36,7 +36,7 @@ public class MainAdapter extends ListenerAdapter {
         }
 
         if (event.getMessage().getContentRaw().startsWith("! gpt")) {
-            event.getChannel().sendMessage(gptMessageService.getReply(event.getMessage().getContentRaw().split("! gpt")[1]));
+            event.getChannel().sendMessage(gptMessageService.getReply(event.getMessage().getContentRaw().split("! gpt")[1])).queue();
         }
 
         super.onMessageReceived(event);

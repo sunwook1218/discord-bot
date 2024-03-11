@@ -25,7 +25,7 @@ public class GptMessageService {
                     .header("Authorization", "Bearer " + gptApiKey)
                     .header("Content-Type", "application/json; utf-8")
                     .POST(HttpRequest.BodyPublishers.ofString("{\"model\": \"gpt-3.5-turbo\",\n" +
-                            "               \"messages\": [{\"role\":\"user\",\"content\": "+inquiry+"}], \n" +
+                            "               \"messages\": [{\"role\":\"user\",\"content\": \""+inquiry+"\"}], \n" +
                             "               \"temperature\":1.0, \n" +
                             "               \"max_tokens\":1024,\n" +
                             "               \"top_p\":1, \n" +
