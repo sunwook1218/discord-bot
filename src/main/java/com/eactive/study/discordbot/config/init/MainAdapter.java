@@ -1,6 +1,8 @@
 package com.eactive.study.discordbot.config.init;
 
+import com.eactive.study.discordbot.service.message.GptMessageService;
 import com.eactive.study.discordbot.service.message.IconMessageService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -8,13 +10,12 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
+@RequiredArgsConstructor
 public class MainAdapter extends ListenerAdapter {
 
-    private final IconMessageService messageService;
+    private final IconMessageService iconMessageService;
+    private final GptMessageService gptMessageService;
 
-    public MainAdapter(IconMessageService messageService) {
-        this.messageService = messageService;
-    }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -23,15 +24,19 @@ public class MainAdapter extends ListenerAdapter {
             return;
         }
 
+        if (!event.getMessage().getContentRaw().startsWith("! ")) {
+            return;
+        }
+
         log.info("MESSAGE Received");
 
-        if (event.getMessage().getContentRaw().startsWith("GGG")) {
-            try {
-                Thread.sleep(60_000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            messageService.sendImage(event.getChannel(), "9.jpg", true);
+        // TODO determine event service 추가하기
+        if (event.getMessage().getContentRaw().startsWith("! icon")) {
+            iconMessageService.sendImage(event.getChannel(), "9.jpg", false);
+        }
+
+        if (event.getMessage().getContentRaw().startsWith("! gpt")) {
+            event.getChannel().sendMessage(gptMessageService.getReply(event.getMessage().getContentRaw().split("! gpt")[1]));
         }
 
         super.onMessageReceived(event);
