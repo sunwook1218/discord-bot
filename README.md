@@ -8,6 +8,14 @@ Conflicted Area
 ABCDERFGSDFSS
 In Local Commit
 
+
+Working From Remote
+3.
+2.
+1.
+XYZADDSAADDASQWESDCX
+SAMPLE
+
 {
   "object_kind": "push",
   "event_name": "push",
