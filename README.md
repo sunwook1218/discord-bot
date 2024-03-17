@@ -1,6 +1,6 @@
 ## Webhook Commit Event 발생 시 수신하는 Json Body 
 ```json
-{ 
+{
   "object_kind": "push",
   "event_name": "push",
   "before": "f1321a77af665ba0ffbff0dbd0442316b6dd51be",
