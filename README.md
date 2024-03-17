@@ -8,7 +8,6 @@ Conflicted Area
 ABCDERFGSDFSS
 In Local Commit
 
-
 Working From Remote
 3.
 2.
