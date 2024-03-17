@@ -24,6 +24,7 @@ public class GitLabWebhookController {
         } catch (JsonProcessingException e) {
             log.error(e.getMessage(), e);
         }
+        System.out.println("TEMP");
         return ResponseEntity.ok(request.getParameterMap());
     }
 
