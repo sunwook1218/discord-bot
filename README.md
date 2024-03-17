@@ -1,4 +1,4 @@
-## Webhook Commit Event 발생 시 수신하는 Json Body
+## Webhook Commit Event 발생 시 수신하는 Json Body 
 ```json
 { 
   "object_kind": "push",
