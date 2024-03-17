@@ -1,20 +1,5 @@
 ## Webhook Commit Event 발생 시 수신하는 Json Body   
 ```json
-
-Conflicted Area
-1.
-2.
-3. 
-ABCDERFGSDFSS
-In Local Commit
-
-Working From Remote
-3.
-2.
-1.
-XYZADDSAADDASQWESDCX
-SAMPLE
-
 {
   "object_kind": "push",
   "event_name": "push",
